@@ -36,7 +36,7 @@ Run the following commands for setup:
 
 /Applications/freesurfer/
 
-``èxport FREESURFER_HOME=/Applications/freesurfer```
+``` export FREESURFER_HOME=/Applications/freesurfer```
 
 ```source $FREESURFER_HOME/SetUpFreeSurfer.sh```
 
