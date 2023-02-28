@@ -58,6 +58,9 @@ FSL_DIR           /Applications/fsl/
 
 
 
+Command to start bedpostX : 
+
+```trac-all -bedp -c dmrirc.tutorial ```
 
 
 
