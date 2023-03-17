@@ -1,0 +1,63 @@
+# FreeSurfer SUBJECTS_DIR 
+# T1 images and FreeSurfer segmentations are expected to be found here
+#
+setenv SUBJECTS_DIR /Users/4lali/Documents/WorkWolf/tracula/derivatives-ses-9484/qsiprep/sub-5247/trac/sub-5247
+
+# Output directory where trac-all results will be saved
+# Default: Same as SUBJECTS_DIR
+#
+set dtroot =  $SUBJECTS_DIR/
+
+# Subject IDs
+#  
+set subjlist = ( sub-5247 )
+
+# Input diffusion DICOMs
+# If original DICOMs don't exist, these can be in other image format
+# but then the gradient table and b-value table must be specified (see below)
+#
+
+set dcmroot = $SUBJECTS_DIR/dmri.bedpostX
+
+set dcmlist = (mean_dsamples.nii.gz )
+
+# Diffusion gradient tables (if there is a different one for each scan)
+# Must be specified if they cannot be read from the DICOM headers
+# The tables must have either three columns, where each row is a gradient vector
+# or three rows, where each column is a gradient vector
+# There must be as many gradient vectors as volumes in the diffusion data set
+# Default: Read from DICOM header
+#
+#bveclist = ( $SUBJECTS_DIR//diffusion_tutorial/elmo.2005/orig/gradients.txt \
+#                $TUTORIAL_DATA/diffusion_tutorial/elmo.2008/orig/gradients.txt \
+#                 $TUTORIAL_DATA/diffusion_tutorial/elmo.2012/orig/gradients.txt )
+
+set bvecfile = $SUBJECTS_DIR/bvecs
+
+
+
+# Diffusion b-value tables (if there is a different one for each scan)
+# Must be specified if they cannot be read from the DICOM headers
+# There must be as many b-values as volumes in the diffusion data set
+# Default: Read from DICOM header
+#
+#set bvallist = ( $TUTORIAL_DATA/diffusion_tutorial/elmo.2005/orig/bvalues.txt \
+#                $TUTORIAL_DATA/diffusion_tutorial/elmo.2008/orig/bvalues.txt \
+#                 $TUTORIAL_DATA/diffusion_tutorial/elmo.2012/orig/bvalues.txt )
+
+
+
+set bvalfile = $SUBJECTS_DIR/bvals
+
+
+#To specify which of the 42 pathways included in the TRACULA tract atlas to reconstruct, use the pathlist variable:
+
+
+set pathlist = ( lh.fx rh.fx lh.uf rh.uf )
+
+
+
+#Specify the number of path control points
+
+set ncpts = ( 9 9 7 7 )
+
