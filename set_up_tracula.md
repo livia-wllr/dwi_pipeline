@@ -64,3 +64,28 @@ Command to start bedpostX :
 
 
 
+
+
+## Step 2 White matter pathways 
+
+
+Change config file -> [config_white_matter_pathways](https://github.com/livia-wllr/dwi_pipeline/tree/main/tracula/config_white_matter_pathways)
+
+1. Specify which white-matter pathways to reconstruct 
+
+To specify which of the 42 pathways included in the TRACULA tract atlas to reconstruct, use the ```pathlist``` variable:
+
+```  set pathlist = ( lh.uf rh.uf cc.rostrum ) ```
+
+
+2. Specify the number of path control points
+
+Use this variable to specify the number of control points that will be used to model each of the pathways in pathlist as a spline.  The default numbers of controls points have been chosen to be proportional to the length of each pathway, and are given in the last column of $FREESURFER_HOME/trctrain/hcp/pathlist.txt.
+
+``` set ncpts = ( 7 7 5 ) ```
+
+
+3. Start step with following command 
+
+``` trac-all -path -c $SUBJECT_DIR/config_white_matter_pathways``` 
+
