@@ -71,12 +71,15 @@ heudiconv  -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/sub-{subject}/se
 * ```-ss 333``` specifies the session number. 333 will replace {session} in the -d argument when Docker actually runs.
 * ```-c none``` indicates you are not actually doing any conversion right now.
 
-Heudiconv generates a hidden directory base/Nifti/.heudiconv/219/info and populates it with two files of interest: a skeleton heuristic.py and a dicominfo.tsv file.
+Heudiconv generates a hidden directory base/Nifti/.heudiconv/219/333/info and populates it with two files of interest: a skeleton heuristic.py and a dicominfo.tsv file.
 
 
 
 #### 2. Step 
-Copy the /Nifti/.heudiconv/heuristic.py to /Nifti/code/heuristic.py. You will modify the copied heuristic.py to specify BIDS output names and directories, and the input DICOM characteristics. Available input DICOM characteristics are listed in MRIS/Nifti/.heudiconv/dicominfo.tsv.
+
+Now we are have to modify the heuristic.py. Copy the /Nifti/.heudiconv/heuristic.py to /Nifti/code/heuristic.py. You will modify the copied heuristic.py to specify BIDS output names and directories, and the input DICOM characteristics. Available input DICOM characteristics are listed in /Nifti/.heudiconv/dicominfo.tsv.
+
+
 
 
 #### 3. Step 
