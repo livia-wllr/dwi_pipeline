@@ -50,13 +50,13 @@ Store  all your DICOMs in one directory. By passing some path information and fl
 
 When you run with docker ->
 ```
-docker run --rm -it -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/{subject}/*/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333 -c none
+docker run --rm -it -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/sub-{subject}/ses-{session}/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333 -c none
 ```
 
 When you run with pip -> 
 
 ```
-heudiconv  -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/{subject}/*/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333  -c none
+heudiconv  -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/sub-{subject}/ses-{session}/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333  -c none
 ```
 
 *  ```--rm```means Docker should cleanup after itself
@@ -82,5 +82,28 @@ Copy the /Nifti/.heudiconv/heuristic.py to /Nifti/code/heuristic.py. You will mo
 #### 3. Step 
 Having revised MRIS/Nifti/code/heuristic.py, you can now call HeuDiConv to run on more subjects and sessions. Each time you run it, additional subdirectories are created under .heudiconv that record the details of each subject (and session) conversion. Detailed provenance information is retained in the .heudiconv hidden directory. You can rename your heuristic file, which may be useful if you have multiple heuristic files for the same dataset.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Trouble shoot :
+
+Common errors : 
+
+* ```AssertionError: Conflicting study identifiers found [1.3.12.2.1107.5.2.50.167110.30000022051710262587100000003, 1.3.12.2.1107.5.2.50.167110.30000022051009185348600000003] ```
+
+This errors arises because the Study IDs in your T1 and other DICOM files are not matching. You can fix this with using the flag ```--grouping all``.
+
+See github forum -> [AssertionError: ](https://github.com/nipy/heudiconv/issues/377)
 
 
