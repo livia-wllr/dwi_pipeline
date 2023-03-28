@@ -80,6 +80,12 @@ Heudiconv generates a hidden directory base/Nifti/.heudiconv/219/333/info and po
 Now we are have to modify the heuristic.py. Copy the /Nifti/.heudiconv/heuristic.py to /Nifti/code/heuristic.py. You will modify the copied heuristic.py to specify BIDS output names and directories, and the input DICOM characteristics. Available input DICOM characteristics are listed in /Nifti/.heudiconv/dicominfo.tsv.
 
 
+```
+docker run --rm -it -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/{subject}/*/*.dcm -o /base/Nifti/ -f /base/Nifti/code/heuristic.py -s 219 -ss itbs -c dcm2niix -b --minmeta --overwrite
+
+```
+
+
 
 
 #### 3. Step 
