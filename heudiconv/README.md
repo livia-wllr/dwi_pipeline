@@ -190,17 +190,22 @@ for idx, s in enumerate(seqinfo):
 #### 3. Step 
 Now we can run heudiconv again 
 
+DOCKER:
 ```
 docker run --rm -it -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/{subject}/*/*.dcm -o /base/Nifti/ -f /base/Nifti/code/heuristic.py -s 219 -ss itbs -c dcm2niix -b --overwrite
+```
+
+conda enviroment: 
+```
+heudiconv -d /base/dicom/{subject}/*/*.dcm -o /base/Nifti/ -f /base/Nifti/code/heuristic.py -s 219 -ss itbs -c dcm2niix -b --overwrite
+
 ```
 
 * ```-f``` /base/Nifti/code/heuristic.py now tells HeuDiConv to use your heuristic.py file your just created  in the code directory.
 *  ```-s 219```specifies the subject number. 219 will replace {subject} in the -d argument 
 * ```-ss 333``` specifies the session number. 333 will replace {session} in the -d argument -> we specify the subject we wish to process -s 219 and the name of the session -ss 333.
 * ```-c dcm2niix -b``` indicates that we want to use the dcm2niix converter with the -b flag (which creates BIDS).
-* ```--overwrite```  With it, everything gets written again (even if it already exists). I don’t know if this is my problem or the tool…but for now, I’m using --overwrite.
-
-
+* ```--overwrite```  With it, everything gets written again (even if it already exists).
 Step 3 should produce a tree like this:
 
 ```
