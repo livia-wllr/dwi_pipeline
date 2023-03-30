@@ -56,7 +56,7 @@ docker run --rm -it -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/sub-{su
 When you run with pip -> 
 
 ```
-heudiconv  -v ${PWD}:/base nipy/heudiconv:latest -d /base/dicom/sub-{subject}/ses-{session}/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333  -c none
+heudiconv -d /base/dicom/sub-{subject}/ses-{session}/*/*.dcm -o /base/Nifti/ -f convertall -s 219 -ss 333  -c none
 ```
 
 *  ```--rm```means Docker should cleanup after itself
