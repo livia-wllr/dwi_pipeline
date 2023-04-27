@@ -19,5 +19,11 @@ You can run qsiprep while using an Singularty Container. In order to build this 
   
  ## Run qsiprep 
   
+ 
+```
+
+
+  
+```
   
  
