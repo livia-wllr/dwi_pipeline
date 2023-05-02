@@ -31,7 +31,7 @@ singularity run --cleanenv --contain --nv \
 -B ${OUTDIR}:/output \
 -B ${WORKDIR}:/work \
 -B ${FSLICENSE}:/license.txt:ro \
-/home/path/to/directory//qsiprep-0.16.1.sif \
+/home/path/to/directory/qsiprep-0.16.1.sif \
 /input /output participant \
    -w /work \
    --participant_label sub-1234 \
